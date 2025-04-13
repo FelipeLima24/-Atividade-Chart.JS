@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando ChartJs</title>
+</head>
+<body>
+   
+</body>
+</html>
+<div class="graficoL">
+    <h2>Variação da umidade do solo durante o dia</h1> 
+        <canvas id="graficoUmidade"></canvas>
+    </div>
+</div> 
+<div class="graficoMeses">
+<h2>Variação Média do Clima no Primeiro Semestre de 2024:</h2>
+<div class="graficoB">
+    <canvas id="graficoMeses"></canvas>
+</div>
+</div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const graficoUmidade = document.getElementById('graficoUmidade');
+  
+    new Chart(graficoUmidade, {
+      type: 'line',
+      data: {
+        labels: ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00'],
+        datasets: [{
+          label: 'Variação de umidade do solo',
+          data: [50, 56, 62, 68, 73, 60, 55],
+          borderWidth: 2,
+          borderColor: 'purple',
+          backgroundColor: 'purple'
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    
+    const graficoMeses = document.getElementById('graficoMeses');
+
+    new Chart(graficoMeses, {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+            datasets: [{
+                label: 'Temperatura Média',
+                data: [22, 24, 27, 23, 20, 18],
+                borderWidth: 3,
+                borderColor: 'yellow',
+                backgroundColor: 'yellow'
+            },
+            {
+                label: 'Umidade Média',
+                data: [90, 89, 93, 87, 88, 82],
+                borderWidth: 3,
+                borderColor: 'purple',
+                backgroundColor: 'purple'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+  </script>
+ <style>
+    body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .graficoL {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .graficoL h2 {
+        text-align: center;
+    }
+
+    .graficoL {
+        width: 500px;
+    }
+
+    .graficoB {
+        width: 500px;
+    }
+</style>
