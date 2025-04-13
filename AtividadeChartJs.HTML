@@ -11,7 +11,7 @@
 </html>
 <div class="graficoL">
     <h2>Variação da umidade do solo durante o dia</h1> 
-        <canvas id="graficoUmidade"></canvas>
+        <canvas id="graficoUmidadeTemp"></canvas>
     </div>
 </div> 
 <div class="graficoMeses">
@@ -21,33 +21,56 @@
 </div>
 </div>
   </div>
+  <style>
+    body {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .graficoB {
+        width: 500px;
+    }
+
+    .graficoL {
+        width: 500px;
+    }
+
+
+</style>
   
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <script>
-    const graficoUmidade = document.getElementById('graficoUmidade');
+    const graficoUmidadeTemp = document.getElementById('graficoUmidadeTemp');
   
-    new Chart(graficoUmidade, {
-      type: 'line',
-      data: {
-        labels: ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00'],
-        datasets: [{
-          label: 'Variação de umidade do solo',
-          data: [50, 56, 62, 68, 73, 60, 55],
-          borderWidth: 2,
-          borderColor: 'purple',
-          backgroundColor: 'purple'
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
+    new Chart(graficoUmidadeTemp, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [{
+                label: 'Variação da temperatura',
+                data: [30, 29, 28, 25, 22, 23],
+                borderWidth: 3,
+                borderColor: 'purple',
+                backgroundColor: 'purple'
+            },
+            {
+                label: 'Variação da Umidade',
+                data: [80, 82, 80, 85, 80, 83],
+                borderWidth: 3,
+                borderColor: 'blue',
+                backgroundColor: 'blue'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
         }
-      }
     });
-    
+
     const graficoMeses = document.getElementById('graficoMeses');
 
     new Chart(graficoMeses, {
@@ -55,14 +78,14 @@
         data: {
             labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
             datasets: [{
-                label: 'Temperatura Média',
+                label: 'Temperatura',
                 data: [22, 24, 27, 23, 20, 18],
                 borderWidth: 3,
                 borderColor: 'yellow',
                 backgroundColor: 'yellow'
             },
             {
-                label: 'Umidade Média',
+                label: 'Umidade',
                 data: [90, 89, 93, 87, 88, 82],
                 borderWidth: 3,
                 borderColor: 'purple',
@@ -78,28 +101,3 @@
         }
     });
   </script>
- <style>
-    body {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    .graficoL {
-        display: flex;
-        flex-direction: column;
-        
-    }
-
-    .graficoL h2 {
-        text-align: center;
-    }
-
-    .graficoL {
-        width: 500px;
-    }
-
-    .graficoB {
-        width: 500px;
-    }
-</style>
